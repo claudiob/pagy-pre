@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/pagy">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.10.1.803984748905">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.10.1.804168289244">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.10.1">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Quick Start &#128154; Pagy</title>
     <meta name="title" content="Quick Start 💚 Pagy">
-    <meta name="description" content="To prevent unexpected breaking changes omit the patch version:">
+    <meta name="description" content="Prevent unexpected breaking changes in stable releases (see omit the patch version):">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://ddnexus.github.io/pagy/guides/quick-start/">
@@ -21,22 +21,22 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ddnexus.github.io/pagy/guides/quick-start/">
     <meta property="og:title" content="Quick Start 💚 Pagy">
-    <meta property="og:description" content="To prevent unexpected breaking changes omit the patch version:">
+    <meta property="og:description" content="Prevent unexpected breaking changes in stable releases (see omit the patch version):">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://ddnexus.github.io/pagy/guides/quick-start/">
     <meta property="twitter:title" content="Quick Start 💚 Pagy">
-    <meta property="twitter:description" content="To prevent unexpected breaking changes omit the patch version:">
+    <meta property="twitter:description" content="Prevent unexpected breaking changes in stable releases (see omit the patch version):">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=3.10.1.803984748905" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.10.1.804168289244" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.10.1.803984748905" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.10.1.804168289244" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.10.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.10.1.803984748905" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.10.1.803984748905" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.10.1.804168289244" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.10.1.804168289244" defer></script>
 
     <!-- ai_widget_start -->
     <script>
@@ -174,7 +174,7 @@
                                 <img class="max-h-10 hidden dark:inline-block" src="../../assets/images/pagy-the-frog.png">
                             </span>
                             <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">Pagy</span>
-                        </a><span id="retype-branding-label" class="hidden mt-1 px-2 py-1 ml-4 text-xs font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-md md:inline-block">43.0.0-pre.1</span>
+                        </a><span id="retype-branding-label" class="hidden mt-1 px-2 py-1 ml-4 text-xs font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-md md:inline-block">43.0.0.pre.1</span>
                     </div>
         
                     <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
@@ -378,10 +378,15 @@
         <span>1. Install</span>
     </h3>
 </doc-anchor-target>
-<p>To prevent unexpected breaking changes <a href="http://guides.rubygems.org/patterns/#pessimistic-version-constraint">omit the patch version</a>:</p>
+<p>Prevent unexpected breaking changes in stable releases (see <a href="http://guides.rubygems.org/patterns/#pessimistic-version-constraint">omit the patch version</a>):</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">Gemfile</div>
-<pre translate="no" class="language-ruby"><code v-pre class="language-ruby">gem 'pagy', '~&gt; 43.0' # Stable version (Pessimistic version constraint)</code></pre>
+<div class="codeblock-title">Gemfile (stable)</div>
+<pre translate="no" class="language-ruby"><code v-pre class="language-ruby">gem 'pagy', '~&gt; 43.0' # Pessimistic version constraint</code></pre>
+</doc-codeblock></div>
+<p>Enable the specific pre-release version. For example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">Gemfile (pre-release)</div>
+<pre translate="no" class="language-ruby"><code v-pre class="language-ruby">gem 'pagy', '43.0.0.pre.123'  # Fixed version constraint</code></pre>
 </doc-codeblock></div>
 <div class="flex mb-6">
     <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-blue-500 dark:bg-blue-400"></div>
@@ -396,7 +401,7 @@
             </svg>
         </div>
         <div class="pr-5 ml-3 w-full">
-            <h5>Try pagy directly</h5>
+            <h5>You can try pagy directly</h5>
 <ul>
 <li><strong>In the Browser</strong>
 <ul>
