@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/pagy">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.805111506767">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.805530986147">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.11.0">
@@ -31,12 +31,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=3.11.0.805111506767" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.11.0.805530986147" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0.805111506767" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0.805530986147" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0.805111506767" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.11.0.805111506767" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0.805530986147" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.11.0.805530986147" defer></script>
 
     <!-- ai_widget_start -->
     <script>
@@ -742,9 +742,9 @@ rendered... or maybe you don&#x27;t. If you don&#x27;t:</p>
    </doc-panel>
    <doc-panel id="ignore-brakeman-unescapedoutputs-false-positives-warnings" collapsed>
        <template #title>Ignore Brakeman UnescapedOutputs false positives warnings</template>
-<p>Pagy output safe HTML, however being an agnostic pagination gem it does not use the specific <code v-pre>html_safe</code> rails helper for its
+<p>Pagy outputs safe HTML, however being an agnostic pagination gem it does not use the specific <code v-pre>html_safe</code> rails helper for its
 output. That is noted by the <a href="https://github.com/presidentbeef/brakeman">Brakeman</a> gem, that will raise a warning.</p>
-<p>You can avoid the warning adding it to the <code v-pre>brakeman.ignore</code> file. More details <a href="https://github.com/ddnexus/pagy/issues/243">here</a>
+<p>Avoid the warning by adding it to the <code v-pre>brakeman.ignore</code> file. More details <a href="https://github.com/ddnexus/pagy/issues/243">here</a>
 and <a href="https://github.com/presidentbeef/brakeman/issues/1519">here</a>.</p>
    </doc-panel>
    <doc-panel id="raise-pagyrangeerror-exceptions" collapsed>
@@ -909,19 +909,18 @@ pagination cycle, pass only the cache key as a param (which avoids sending the a
 <pre translate="no" class="language-ruby"><code v-pre class="language-ruby">require 'digest'
 
 def filtered_action
-  options = {}
-  if params[:filter_key] # already cached
+  pagy_options = {}
+  if params[:filter_key]  # retrieve already cached filters
     filters = session[params[:filter_key]]
-  else
-    # first request
-    filters      = params[:filters]
+  else  # store new filters
+    filters      = params[:filters] # your filter hash
     key          = Digest::SHA1.hexdigest(filters.sort.to_json)
     session[key] = filters
-
-    options[:querify] = -&gt;(qh) { qh.merge!(filter_key: key) }
+    
+    pagy_options[:querify] = -&gt;(query_hash) { query_hash.merge!(filter_key: key) }
   end
   collection      = Product.where(**filters)
-  @pagy, @records = pagy(:offset, collection, **options)
+  @pagy, @records = pagy(:offset, collection, **pagy_options)
 end</code></pre>
 </doc-codeblock></div>
 <div class="flex mb-6">

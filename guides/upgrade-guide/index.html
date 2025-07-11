@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/pagy">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.805111506767">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.805530986147">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.11.0">
@@ -31,12 +31,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=3.11.0.805111506767" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.11.0.805530986147" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0.805111506767" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0.805530986147" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0.805111506767" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.11.0.805111506767" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0.805530986147" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.11.0.805530986147" defer></script>
 
     <!-- ai_widget_start -->
     <script>
@@ -445,102 +445,12 @@ as needed.</em></p>
 <li>When you find one, follow the specific section below to upgrade your code.</li>
 <li>As you proceed, remove each entry from the <code v-pre>pagy-old.rb</code>.</li>
 </ul>
-<hr>
-<doc-anchor-target id="label-upgrade-to-43icon-sunorder-80">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#label-upgrade-to-43icon-sunorder-80">#</doc-anchor-trigger>
-        <span>label: Upgrade to 43
-icon: sun
-order: 80</span>
-    </h2>
+<doc-anchor-target id="extras">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#extras">#</doc-anchor-trigger>
+        <span>Extras</span>
+    </h4>
 </doc-anchor-target>
-<doc-anchor-target id="section-1">
-    <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#section-1">#</doc-anchor-trigger>
-        <span></span>
-    </h1>
-</doc-anchor-target>
-<doc-anchor-target id="upgrade-to-43-1">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#upgrade-to-43-1">#</doc-anchor-trigger>
-        <span>Upgrade to 43</span>
-    </h2>
-</doc-anchor-target>
-<hr>
-<p>Pagy version 43 is a complete redesign of the legacy code. Its improvements make pagination a lot simpler and powerful, but
-require a quite different way to use it.</p>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-success"></div>
-    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-callout-success" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M21 9.09c-.55 0-1 .45-1 1v.92c0 4.96-4.04 8.99-9 8.99-4.97 0-9-4.04-9-9s4.04-9 9-9c1.27 0 2.5.26 3.66.78.51.22 1.1 0 1.32-.51.23-.5 0-1.1-.51-1.32C14.06.32 12.56 0 11.01 0H11C4.94 0 0 4.93 0 10.99 0 17.06 4.93 22 10.99 22H11c6.06 0 11-4.93 11-10.99v-.92c0-.56-.45-1-1-1z"></path>
-                    <path d="M8.71 9.31a.996.996 0 10-1.41 1.41l3 3c.19.19.44.29.71.29.27 0 .52-.11.71-.29l10-10.01a.996.996 0 10-1.41-1.41L11 11.6 8.71 9.31z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-            <h5>Follow this guide to upgrade your app in just a few minutes.</h5>
-<p>Cherry-pick only what applies to your app: you can safely skip all the rest.</p>
-        </div>
-    </div>
-</div>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-primary"></div>
-    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-callout-primary" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-            <h5>Just the steps without distractions.</h5>
-<p>This guide focuses on getting the job done quickly. If you want to learn more about the changes:</p>
-<ul>
-<li>Consult the docs and <a href="../how-to/">How To Guide</a></li>
-<li>Ask Pagy AI specific questions (with the bottom-right button in this page)</li>
-<li>Ask in the <a href="https://github.com/ddnexus/pagy/discussions/categories/q-a">Q&amp;A discussion</a>.</li>
-</ul>
-        </div>
-    </div>
-</div>
-<doc-anchor-target id="1-replace-the-pagyrb-config-file-1">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#1-replace-the-pagyrb-config-file-1">#</doc-anchor-trigger>
-        <span>1. Replace the <code v-pre>pagy.rb</code> config file</span>
-    </h3>
-</doc-anchor-target>
-<ul>
-<li><p>Rename your <code v-pre>pagy.rb</code> initializer as <code v-pre>pagy-old.rb</code>, and add the new, concise
-<a href="../../resources/initializer/">pagy.rb</a> initializer in its place.</p>
-</li>
-<li><p>Search the <code v-pre>pagy-old.rb</code> for code-occurrences of <code v-pre>Pagy::DEFAULT[...]</code> and move them to the new <code v-pre>pagy.js</code> (remove them from the
-<code v-pre>pagy-old.rb</code>)</p>
-</li>
-<li><p>Replace all the <code v-pre>Pagy::DEFAULT[...]</code> entries just added to the new <code v-pre>pagy.rb</code> with <code v-pre>Pagy.options[...]</code>.</p>
-</li>
-</ul>
-<p><em>In the next steps we will use the <code v-pre>pagy-old.rb</code> as the blueprint to guide most of the changes, and we will edit the new <code v-pre>pagy.rb</code>
-as needed.</em></p>
-<doc-anchor-target id="2-replace-your-used-extras-1">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#2-replace-your-used-extras-1">#</doc-anchor-trigger>
-        <span>2. Replace your used extras</span>
-    </h3>
-</doc-anchor-target>
-<p>The new version doesn&#x27;t use the extras anymore. They got integrated in the core code, and a few have been discontinued.</p>
-<ul>
-<li>Search any active <code v-pre>require 'pagy/extras/*</code> in the <code v-pre>pagy-old.rb</code> file</li>
-<li>When you find one, follow the specific section below to upgrade your code.</li>
-<li>As you proceed, remove each entry from the <code v-pre>pagy-old.rb</code>.</li>
-</ul>
-<details>
-  <summary><h4 style="display: inline-block">Extras...</h4></summary>
 <doc-panels>
    <doc-panel id="array" collapsed>
        <template #title><code v-pre>array</code></template>
