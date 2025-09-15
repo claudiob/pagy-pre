@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/pagy">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.809010735856">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.811265736462">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.11.0">
@@ -31,12 +31,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=3.11.0.809010735856" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.11.0.811265736462" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0.809010735856" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0.811265736462" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0.809010735856" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.11.0.809010735856" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0.811265736462" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.11.0.811265736462" defer></script>
 
     <!-- ai_widget_start -->
     <script>
@@ -1171,7 +1171,7 @@ querify = -&gt;(q) { q.except!('not_useful').merge!('custom' =&gt; 'useful') }</
 <ul>
 <li>Overriding methods in controllers/helpers is not possible or discouraged.</li>
 <li>The cleanest approach for local overriding is via Ruby refinements or the initializer for global override.</li>
-<li>Check the <a href="../how-to/#override-pagy-methods">How To Override Pagy Method</a>.</li>
+<li>Check the <a href="../how-to/#override-pagy-methods">How To Override Pagy Methods</a>.</li>
 <li>If your <code v-pre>pagy-old.rb</code> contains overridden methods, copy the methods over to the <code v-pre>pagy.rb</code> initializer, however, consider that:
 <ul>
 <li>Internal Pagy protected methods have been extensively refactored, likely renamed, and occasionally removed.</li>
@@ -1199,7 +1199,7 @@ querify = -&gt;(q) { q.except!('not_useful').merge!('custom' =&gt; 'useful') }</
 </tr>
 <tr>
 <td><code v-pre>pagy_t</code></td>
-<td><code v-pre>I18n.translate</code></td>
+<td><code v-pre>Pagy::I18n.translate</code></td>
 </tr>
 <tr>
 <td><code v-pre>label_for</code></td>

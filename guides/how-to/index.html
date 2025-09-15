@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/pagy">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.809010735856">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.811265736462">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.11.0">
@@ -31,12 +31,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=3.11.0.809010735856" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.11.0.811265736462" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0.809010735856" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0.811265736462" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0.809010735856" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.11.0.809010735856" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0.811265736462" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.11.0.811265736462" defer></script>
 
     <!-- ai_widget_start -->
     <script>
@@ -768,25 +768,25 @@ def redirect_to_last_page(exception)
   redirect_to url_for(page: exception.pagy.last), notice: &quot;Page ##{params[:page]} is out-of-range. Showing page #{exception.pagy.last} instead.&quot;
 end</code></pre>
 </doc-codeblock></div>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-warning"></div>
-    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-callout-warning" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M22.48 15.59L14.01 1.45A2.968 2.968 0 0012.16.09c-.78-.19-1.58-.07-2.27.35-.41.25-.76.6-1.01 1.01v.01L.4 15.6c-.83 1.43-.33 3.27 1.1 4.1.45.26.95.4 1.48.4h16.95c.8-.01 1.55-.33 2.11-.9.56-.57.87-1.33.86-2.13a3.04 3.04 0 00-.42-1.48zm-1.87 2.21c-.19.19-.44.3-.69.3H2.99c-.17 0-.34-.05-.49-.13a.992.992 0 01-.37-1.35L10.6 2.48c.08-.14.2-.25.34-.33a.992.992 0 011.37.33l8.46 14.13c.09.15.13.32.13.49 0 .26-.1.51-.29.7z"></path>
-                    <path d="M11.45 12.1c.55 0 1-.45 1-1v-4c0-.55-.45-1-1-1s-1 .45-1 1v4c0 .56.45 1 1 1zM11.46 14.1c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-            <h5>Rescue from <code v-pre>Pagy::RangeError</code> first</h5>
-<p>All Pagy exceptions are subclasses of <code v-pre>ArgumentError</code>, so if you need to <code v-pre>rescue_from ArgumentError, ...</code> along with
-<code v-pre>rescue_from Pagy::RangeError, ...</code> then the <code v-pre>Pagy::RangeError</code> line should go BEFORE the <code v-pre>ArgumentError</code> line, or it will never
-get rescued.</p>
-        </div>
-    </div>
-</div>
+   </doc-panel>
+   <doc-panel id="manage-bad-bot-requests" collapsed>
+       <template #title>Manage bad bot requests</template>
+<p>Bots may attempt to sniff your app by posting questionable page params e.g. <code v-pre>https://some_url&amp;page=password</code> and generate tons of annoying bad request errors.</p>
+<p>Here is a snippet to handle that:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">controller</div>
+<pre translate="no" class="language-ruby"><code v-pre class="language-ruby">rescue_from Pagy::OptionError do |exception|
+  if exception.option == :page 
+    # apply your own logic to handle / not handle the exception
+    redirect_to action: :index, params: request.query_parameters.merge(page: 1) # redirect to the first page
+    # or just force the page without redirecting
+    # @pagy, @records = pagy(:offset, collection, page: 1)
+  else
+    raise
+  end
+end</code></pre>
+</doc-codeblock></div>
+<p>See <a href="../../toolbox/paginators/#common-exceptions">common exceptions</a> for details.</p>
    </doc-panel>
    <doc-panel id="test-with-pagy" collapsed>
        <template #title>Test with Pagy</template>
